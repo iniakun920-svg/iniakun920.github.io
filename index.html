@@ -1,0 +1,676 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Muhamad Akbar - CV</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f5f5f5;
+            padding: 20px;
+        }
+        
+        .cv-container {
+            max-width: 210mm;
+            margin: 0 auto;
+            background: white;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+            min-height: 297mm;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #1e3a8a, #3b82f6);
+            color: white;
+            padding: 40px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="20" cy="20" r="2" fill="white" opacity="0.1"/><circle cx="80" cy="40" r="3" fill="white" opacity="0.05"/><circle cx="40" cy="80" r="2" fill="white" opacity="0.1"/><circle cx="90" cy="90" r="1" fill="white" opacity="0.1"/><circle cx="10" cy="60" r="2" fill="white" opacity="0.08"/></svg>');
+        }
+        
+        .header-content {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .name {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+            letter-spacing: -1px;
+        }
+        
+        .title {
+            font-size: 1.2rem;
+            font-weight: 300;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            opacity: 0.9;
+        }
+        
+        .contact-info {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 30px;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            padding: 8px 12px;
+            border-radius: 8px;
+        }
+        
+        .contact-item:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        }
+        
+        .contact-item[style*="cursor: pointer"]:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-3px) scale(1.05);
+        }
+        
+        .contact-icon {
+            width: 16px;
+            height: 16px;
+            opacity: 0.8;
+        }
+        
+        .main-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0;
+            min-height: calc(297mm - 200px);
+        }
+        
+        .left-column, .right-column {
+            padding: 30px;
+        }
+        
+        .left-column {
+            background: #f8fafc;
+            border-right: 1px solid #e2e8f0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .right-column {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .section {
+            margin-bottom: 30px;
+        }
+        
+        .section-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #1e3a8a;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid #3b82f6;
+        }
+        
+        .summary-text {
+            font-size: 0.95rem;
+            line-height: 1.7;
+            color: #475569;
+        }
+        
+        .education-item {
+            margin-bottom: 15px;
+            padding-left: 15px;
+            position: relative;
+        }
+        
+        .education-item::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 8px;
+            width: 6px;
+            height: 6px;
+            background: #3b82f6;
+            border-radius: 50%;
+        }
+        
+        .education-school {
+            font-weight: 500;
+            color: #1e40af;
+            margin-bottom: 2px;
+        }
+        
+        .education-years {
+            font-size: 0.85rem;
+            color: #64748b;
+        }
+        
+        .skills-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+        
+        .skill-category h4 {
+            font-weight: 500;
+            color: #1e40af;
+            margin-bottom: 8px;
+        }
+        
+        .skill-list {
+            list-style: none;
+        }
+        
+        .skill-list li {
+            padding: 4px 0;
+            padding-left: 15px;
+            position: relative;
+            font-size: 0.9rem;
+            color: #475569;
+        }
+        
+        .skill-list li::before {
+            content: '•';
+            color: #3b82f6;
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+        }
+        
+        .experience-item {
+            margin-bottom: 20px;
+            padding: 15px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .experience-title {
+            font-weight: 600;
+            color: #1e40af;
+            margin-bottom: 4px;
+        }
+        
+        .experience-duration {
+            font-size: 0.85rem;
+            color: #64748b;
+            margin-bottom: 8px;
+        }
+        
+        .experience-desc {
+            font-size: 0.9rem;
+            color: #475569;
+            line-height: 1.6;
+        }
+        
+        .languages {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        
+        .language-item {
+            padding: 8px 15px;
+            background: linear-gradient(135deg, #3b82f6, #1e40af);
+            color: white;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+        
+        /* Bubble Animations */
+        .bubble {
+            position: absolute;
+            border-radius: 50%;
+            pointer-events: none;
+            opacity: 0;
+            animation: bubbleFloat 8s infinite linear;
+        }
+        
+        .bubble-left {
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(30, 64, 175, 0.05));
+            border: 1px solid rgba(59, 130, 246, 0.1);
+        }
+        
+        .bubble-right {
+            background: linear-gradient(135deg, rgba(147, 51, 234, 0.08), rgba(79, 70, 229, 0.05));
+            border: 1px solid rgba(147, 51, 234, 0.1);
+        }
+        
+        @keyframes bubbleFloat {
+            0% {
+                transform: translateY(100vh) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100px) rotate(360deg);
+                opacity: 0;
+            }
+        }
+        
+        /* Hover effects with bubble reactions */
+        .section:hover ~ .bubble {
+            animation-duration: 4s;
+        }
+        
+        .experience-item:hover {
+            transform: translateY(-2px);
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 25px rgba(59, 130, 246, 0.15);
+        }
+        
+        .education-item:hover {
+            transform: translateX(5px);
+            transition: all 0.3s ease;
+            padding-left: 20px;
+        }
+        
+        /* New hover effects for Summary, Skills, and Interests */
+        .summary-text:hover {
+            transform: scale(1.02);
+            transition: all 0.3s ease;
+            background: rgba(59, 130, 246, 0.05);
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 4px solid #3b82f6;
+        }
+        
+        .skills-grid:hover {
+            transform: translateY(-3px);
+            transition: all 0.4s ease;
+        }
+        
+        .skill-category:hover {
+            background: rgba(59, 130, 246, 0.08);
+            padding: 10px;
+            border-radius: 8px;
+            transform: scale(1.05);
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(59, 130, 246, 0.1);
+        }
+        
+        .skill-list li:hover {
+            transform: translateX(8px);
+            color: #1e40af;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+        
+        .skill-list li:hover::before {
+            content: '.';
+            color: #3b82f6;
+            transform: scale(1.3);
+        }
+        
+        /* Interests section hover effects */
+        .interests-content:hover {
+            background: linear-gradient(135deg, rgba(147, 51, 234, 0.05), rgba(79, 70, 229, 0.03));
+            padding: 15px;
+            border-radius: 12px;
+            transform: translateY(-2px);
+            transition: all 0.4s ease;
+            border: 1px solid rgba(147, 51, 234, 0.1);
+            box-shadow: 0 6px 20px rgba(147, 51, 234, 0.1);
+        }
+        
+        /* Language items enhanced hover */
+        .language-item:hover {
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 6px 20px rgba(59, 130, 246, 0.3);
+            transition: all 0.3s ease;
+        }
+        
+        /* Section title hover effects */
+        .section-title:hover {
+            transform: translateX(5px);
+            color: #1e40af;
+            transition: all 0.3s ease;
+            text-shadow: 0 2px 4px rgba(59, 130, 246, 0.2);
+        }
+        
+        /* Floating effect for sections */
+        .section:hover {
+            transform: translateY(-2px);
+            transition: all 0.4s ease;
+        }
+        
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+            }
+            
+            .cv-container {
+                box-shadow: none;
+                max-width: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="cv-container">
+        <header class="header">
+            <div class="header-content">
+                <h1 class="name">Muhamad Akbar</h1>
+                <div class="title">Fresh Graduate</div>
+                <div class="contact-info">
+                    <div class="contact-item" onclick="openWhatsApp()" style="cursor: pointer;">
+                        <svg class="contact-icon" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/>
+                        </svg>
+                        +62-896-1463-3072
+                    </div>
+                    <div class="contact-item" onclick="openGmail()" style="cursor: pointer;">
+                        <svg class="contact-icon" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"/>
+                            <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"/>
+                        </svg>
+                        iniakun920@gmail.com
+                    </div>
+                    <div class="contact-item">
+                        <svg class="contact-icon" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"/>
+                        </svg>
+                        Bogor City
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <div class="main-content">
+            <div class="left-column">
+                <!-- Animated Bubbles for Left Column -->
+                <div class="bubble bubble-left" style="width: 20px; height: 20px; left: 10%; animation-delay: 0s;"></div>
+                <div class="bubble bubble-left" style="width: 15px; height: 15px; left: 80%; animation-delay: 2s;"></div>
+                <div class="bubble bubble-left" style="width: 25px; height: 25px; left: 60%; animation-delay: 4s;"></div>
+                <div class="bubble bubble-left" style="width: 12px; height: 12px; left: 30%; animation-delay: 6s;"></div>
+                <div class="bubble bubble-left" style="width: 18px; height: 18px; left: 90%; animation-delay: 3s;"></div>
+                <div class="bubble bubble-left" style="width: 22px; height: 22px; left: 15%; animation-delay: 5s;"></div>
+                <div class="bubble bubble-left" style="width: 16px; height: 16px; left: 70%; animation-delay: 1s;"></div>
+                <div class="bubble bubble-left" style="width: 14px; height: 14px; left: 45%; animation-delay: 7s;"></div>
+                <section class="section">
+                    <h2 class="section-title">Summary</h2>
+                    <p class="summary-text">
+                        Highly motivated freshman with proven ability to learn quickly and be an effective team member. Interested in Software Engineering and Cyber Security. Has mastered various programming languages such as C# and C++. Has produced several Matcha research websites and calculator apk.
+                    </p>
+                </section>
+
+                <section class="section">
+                    <h2 class="section-title">Education School</h2>
+                    <div class="education-item">
+                        <div class="education-school">SMAN 1 Dramaga</div>
+                        <div class="education-years">2022 - 2025</div>
+                    </div>
+                    <div class="education-item">
+                        <div class="education-school">SMP IT BBS</div>
+                        <div class="education-years">2019 - 2022</div>
+                    </div>
+                    <div class="education-item">
+                        <div class="education-school">SDN Margajaya 2</div>
+                        <div class="education-years">2013 - 2019</div>
+                    </div>
+                </section>
+
+                <section class="section">
+                    <h2 class="section-title">Skills</h2>
+                    <div class="skills-grid">
+                        <div class="skill-category">
+                            <h4>Programming</h4>
+                            <ul class="skill-list">
+                                <li>C#</li>
+                                <li>C++</li>
+                                <li>Web Development</li>
+                                <li>Mobile App Development</li>
+                            </ul>
+                        </div>
+                        <div class="skill-category">
+                            <h4>Tools</h4>
+                            <ul class="skill-list">
+                                <li>Microsoft Excel</li>
+                                <li>Microsoft Office</li>
+                                <li>Microsoft Word</li>
+                                <li>Data Collection</li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="section">
+                    <h2 class="section-title">Languages</h2>
+                    <div class="languages">
+                        <div class="language-item">Indonesian (Active)</div>
+                        <div class="language-item">English (Active)</div>
+                    </div>
+                </section>
+            </div>
+
+            <div class="right-column">
+                <!-- Animated Bubbles for Right Column -->
+                <div class="bubble bubble-right" style="width: 24px; height: 24px; left: 20%; animation-delay: 1s;"></div>
+                <div class="bubble bubble-right" style="width: 16px; height: 16px; left: 85%; animation-delay: 3s;"></div>
+                <div class="bubble bubble-right" style="width: 20px; height: 20px; left: 50%; animation-delay: 5s;"></div>
+                <div class="bubble bubble-right" style="width: 13px; height: 13px; left: 75%; animation-delay: 0s;"></div>
+                <div class="bubble bubble-right" style="width: 19px; height: 19px; left: 10%; animation-delay: 4s;"></div>
+                <div class="bubble bubble-right" style="width: 21px; height: 21px; left: 95%; animation-delay: 6s;"></div>
+                <div class="bubble bubble-right" style="width: 17px; height: 17px; left: 35%; animation-delay: 2s;"></div>
+                <div class="bubble bubble-right" style="width: 15px; height: 15px; left: 65%; animation-delay: 7s;"></div>
+                <section class="section">
+                    <h2 class="section-title">Experience</h2>
+                    
+                    <div class="experience-item">
+                        <div class="experience-title">Duta of UIKA CHAMPIONS LEAGUE</div>
+                        <div class="experience-duration">2024</div>
+                        <div class="experience-desc">
+                            Served as an Duta for the UIKA Champions League, representing My School and promoting the event to increase participation and engagement within the academic community.
+                        </div>
+                    </div>
+
+                    <div class="experience-item">
+                        <div class="experience-title"> Freelance 3 months in the archive warehouse of BSI (Bank Syariah Indonesia)</div>
+                        <div class="experience-duration">June 2025 - August 2025 (3 months)</div>
+                        <div class="experience-desc">
+                            Worked as a freelancer in the archive warehouse of BSI (Bank Syariah Indonesia) specializing in data collection using Microsoft Excel. Responsible for organizing, processing, and maintaining accurate data.
+                        </div>
+                    </div>
+                </section>
+
+                <section class="section">
+                    <h2 class="section-title">Projects</h2>
+                    
+                    <div class="experience-item">
+                        <div class="experience-title">Matcha Research Website</div>
+                        <div class="experience-desc">
+                            Developed multiple research websites focused on Matcha, implementing modern web development techniques and user-friendly interfaces to present comprehensive information and research findings.
+                        </div>
+                    </div>
+
+                    <div class="experience-item">
+                        <div class="experience-title">Calculator Mobile Application</div>
+                        <div class="experience-desc">
+                            Created a functional calculator application (APK) demonstrating proficiency in mobile app development, user interface design, and programming logic implementation.
+                        </div>
+                    </div>
+                </section>
+
+                <section class="section">
+                    <h2 class="section-title">Interests</h2>
+                    <div class="experience-desc interests-content">
+                        <strong>Software Engineering:</strong> Passionate about developing efficient and scalable software solutions, staying updated with latest programming trends and technologies.
+                        <br><br>
+                        <strong>Cyber Security:</strong> Keen interest in information security, data protection, and understanding the latest cybersecurity threats and prevention methods.
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+
+    <!-- Print/PDF Button -->
+    <div class="print-button-container" style="position: fixed; top: 20px; right: 20px; z-index: 1000;">
+        <button onclick="window.print()" class="print-button" style="
+            background: linear-gradient(135deg, #3b82f6, #1e40af);
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            box-shadow: 0 4px 8px rgba(59, 130, 246, 0.3);
+            font-size: 14px;
+            transition: all 0.3s ease;
+        " 
+        onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 6px 12px rgba(59, 130, 246, 0.4)'"
+        onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 8px rgba(59, 130, 246, 0.3)'">
+            📄 Download PDF
+        </button>
+    </div>
+
+    <script>
+        // Auto-optimize for PDF printing
+        window.addEventListener('load', function() {
+            // Optimize layout for PDF
+            document.body.style.margin = '0';
+            document.body.style.padding = '0';
+            
+            // Print function
+            window.printPDF = function() {
+                // Hide print button when printing
+                const printBtn = document.querySelector('.print-button-container');
+                printBtn.style.display = 'none';
+                
+                // Print
+                window.print();
+                
+                // Show button again after print dialog
+                setTimeout(() => {
+                    printBtn.style.display = 'block';
+                }, 1000);
+            };
+            
+            // Update button onclick
+            document.querySelector('.print-button').onclick = window.printPDF;
+        });
+        
+        // WhatsApp function
+        function openWhatsApp() {
+            const phoneNumber = '6289614633072'; // Format internasional tanpa + dan -
+            const message = encodeURIComponent('Halo Muhamad Akbar, saya tertarik dengan profil CV Anda dan ingin berdiskusi lebih lanjut mengenai peluang kerja sama.');
+            const whatsappURL = `https://wa.me/${phoneNumber}?text=${message}`;
+            window.open(whatsappURL, '_blank');
+        }
+        
+        // Gmail function
+        function openGmail() {
+            const email = 'iniakun920@gmail.com';
+            const subject = encodeURIComponent('Regarding Your CV - Job Opportunity');
+            const body = encodeURIComponent(`Halo Muhamad Akbar,
+
+Saya telah melihat CV Anda dan tertarik dengan latar belakang Anda di bidang Software Engineering dan Cyber Security.
+
+Saya ingin berdiskusi lebih lanjut mengenai:
+- Pengalaman Anda dengan C# dan C++
+- Project Matcha research website dan calculator app
+- Peluang kerja sama yang mungkin tersedia
+
+Mohon konfirmasi ketersediaan Anda untuk diskusi lebih lanjut.
+
+Terima kasih,
+[Your Name]`);
+            
+            const gmailURL = `https://mail.google.com/mail/?view=cm&to=${email}&su=${subject}&body=${body}`;
+            window.open(gmailURL, '_blank');
+        }
+        
+        // Additional CSS for better PDF output
+        const printStyles = `
+            @media print {
+                @page {
+                    margin: 0.5in;
+                    size: A4;
+                }
+                .print-button-container {
+                    display: none !important;
+                }
+                .cv-container {
+                    box-shadow: none !important;
+                    margin: 0 !important;
+                    max-width: none !important;
+                }
+                body {
+                    background: white !important;
+                    padding: 0 !important;
+                }
+                .header {
+                    page-break-inside: avoid;
+                }
+                .section {
+                    page-break-inside: avoid;
+                    break-inside: avoid;
+                }
+                .experience-item {
+                    page-break-inside: avoid;
+                    break-inside: avoid;
+                }
+                /* Disable animations when printing */
+                .bubble {
+                    display: none !important;
+                }
+                .experience-item:hover,
+                .education-item:hover,
+                .summary-text:hover,
+                .skills-grid:hover,
+                .skill-category:hover,
+                .interests-content:hover,
+                .section:hover,
+                .section-title:hover {
+                    transform: none !important;
+                    background: transparent !important;
+                    box-shadow: none !important;
+                    padding: inherit !important;
+                    border: none !important;
+                }
+            }
+        `;
+        
+        // Inject print styles
+        const styleSheet = document.createElement('style');
+        styleSheet.textContent = printStyles;
+        document.head.appendChild(styleSheet);
+    </script>
+</body>
+</html>
